@@ -1,6 +1,6 @@
-## Reflic AI Server
+## Relic AI Server
 
-Relic-based Dart server that proxies requests to Google AI for image generation.
+Relic Web Server is Dart based, to create fast prototyping of backend endpoints. Here I have createdAPI endpoints which generates images using Gemini AI Apis
 
 ### Local development
 
