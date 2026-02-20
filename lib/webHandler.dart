@@ -32,18 +32,10 @@ Future<String?> callGeminiApi(String prompt, {String? imageBase64}) async {
 
   List<Content> contents = [Content.text(prompt)];
 
-  if (imageBase64 != null) {
-    contents.add(
-      Content.fromParts([
-        InlineDataPart(Blob(mimeType: 'image/jpeg', data: imageBase64)),
-      ]),
-    );
-  }
-
   GenerateContentResponse response = await ai_client.models.generateContent(
     model: "gemini-2.5-flash-image",
     request: GenerateContentRequest(
-      contents: [Content.text(prompt)],
+      contents: contents,
       generationConfig: GenerationConfig(
         imageConfig: ImageConfig(aspectRatio: "16:9", imageSize: "1K"),
       ),
