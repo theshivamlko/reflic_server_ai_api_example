@@ -17,7 +17,7 @@ Future<Response> imageGeneration(final Request req) async {
   try {
     final resultBase64 = await callGeminiApi(prompt);
     return Response.ok(
-      body: Body.fromString(resultBase64 ?? 'No image generated.'),
+      body: Body.fromData(resultBase64  != null ? base64Decode(resultBase64) : Uint8List(0), mimeType: MimeType('image', 'png')),
     );
   } catch (e) {
     print('Error calling Gemini API: $e');
@@ -45,7 +45,7 @@ Future<String?> callGeminiApi(String prompt, {String? imageBase64}) async {
     request: GenerateContentRequest(
       contents: [Content.text(prompt)],
       generationConfig: GenerationConfig(
-        imageConfig: ImageConfig(aspectRatio: "9:16", imageSize: "1K"),
+        imageConfig: ImageConfig(aspectRatio: "16:9", imageSize: "1K"),
       ),
     ),
   );

@@ -11,6 +11,7 @@ RUN dart pub get
 COPY . ./
 RUN dart pub get --offline
 
+
 # Compile the Relic server to a native executable for faster startups
 RUN dart compile exe bin/reflic_ai_server.dart -o /app/bin/server
 
