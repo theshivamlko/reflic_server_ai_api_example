@@ -1,0 +1,13 @@
+.dart_tool/
+build/
+.git/
+.gitignore
+.env
+.packages
+.pub-cache/
+.dart_frog/
+*.iml
+.idea/
+README.md
+CHANGELOG.md
+analysis_options.yaml
